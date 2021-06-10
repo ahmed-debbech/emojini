@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Emojini",
+    "version": "0.1",
+    "description": "Key bind your emojis for easy writting",
+    "action": {
+      "default_icon": "icon16.png",
+      "default_popup": "popup.html"
+    },
+    "permissions": ["scripting", "tabs", "activeTab"]
+  }
