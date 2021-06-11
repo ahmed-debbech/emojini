@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <style>
       body {
-        width: 200px;
-        height: 400px;
+        width: auto;
+        height: auto;
       }
       input {
         display: block;
@@ -18,6 +19,7 @@
         width: 90%;
       }
     </style>
+
   </head>
   <body>
     <h2>Emojini :)</h2>
@@ -27,22 +29,22 @@
                 <h4>Starting Key Binding</h4>
             </td>
             <td>
-                <input type="text"> 
+                <input id="general" type="text"> 
             </td>
         </tr>
     </table>
     <h4>Emojis Key Bindings:</h4>
-    <table>
+    <table id="emojis_table" border="3px">
         <tr>
-            <td>
-                glg
-            </td>
-            <td>
-                pppp
-            </td>
+            <th>
+                Symbol
+            </th>
+            <th>
+                key
+            </th>
         </tr>
     </table>
-    <button>Add New</button>
+    <button id="add_new">Add New</button>
     <button id="appl">Apply</button>
     <script src="popup.js"></script>
   </body>
