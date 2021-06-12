@@ -15,10 +15,12 @@ var inputs = document.getElementsByTagName('input');
 
 for(var i = 0; i < inputs.length; i++) {
     if(inputs[i].type.toLowerCase() == 'text') {
-        function updateValue(input) {
-            ne = analyze(input.value);
-            input.value = ne;
-        }
-        inputs[i].addEventListener('change', updateValue(inputs[i]));
+        inputs[i].addEventListener('keyup', 
+        function updateValue(e,inputs, i) {
+            if(e.keyCode == 32){
+                ne = analyze(inputs[i].value);
+                inputs[i].value = ne;
+            }
+        });
     }
 }
