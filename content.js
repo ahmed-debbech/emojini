@@ -1,14 +1,23 @@
-//alert("passa");
+function analyze(text){
+    let r = RegExp('_&lg');
+    alert(text.match(r));
+    var matches = text.match(r);
+    var str = text;
+    //for(var i=0; i<= matches.length; i++){
+        var st = str.replace('_&lg', "😂");
+        alert(st);
+    //}
+    return st;
+}
 const focuselem = document.activeElement;
-//alert("33 " + focuselem.innerHTML);
 
 var inputs = document.getElementsByTagName('input');
-//alert(divs.length);
 
 for(var i = 0; i < inputs.length; i++) {
     if(inputs[i].type.toLowerCase() == 'text') {
         function updateValue(input) {
-            input.value="changed!";
+            ne = analyze(input.value);
+            input.value = ne;
         }
         inputs[i].addEventListener('change', updateValue(inputs[i]));
     }

@@ -49,7 +49,6 @@ chseck.addEventListener("click", (e) => {
     chrome.storage.local.set({ 'general': gen }, function(){
         //  Data's been saved boys and girls, go on home
     });
-    alert("counter" + count);
     var arr = [];
     for(var i = 0; i<=count-2; i++){
         var arremoji = document.getElementById("ent_sym"+i).value;
