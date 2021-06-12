@@ -6,26 +6,36 @@ const general = document.getElementById("general").value;
 //get stored data
 chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
     document.getElementById("general").value = items.general;
-    for(var i=0; i<=items.emoji_sym.length; i++){
+    console.log(items);
+    for(var i=0; i<=items.emoji_sym.length-1; i++){
         var newRow = table.insertRow();
         var newCell = newRow.insertCell();
         var newCell1 = newRow.insertCell();
         var newText = document.createElement("INPUT");
-        newText.setAttribute("class", "entries");
+        newText.setAttribute("id", "ent_sym"+i);
+        newText.setAttribute("value", items.emoji_sym[i]);
+        newText.addEventListener("input", function(evt){
+            newText.setAttribute("value", evt.target.value);
+        });
         var newText1 = document.createElement("INPUT");
-        newText1.setAttribute("class", "entries1");
+        newText1.setAttribute("id", "ent_key"+i);
+        newText1.setAttribute("value", items.emoji_key[i]);
+        newText1.addEventListener("input", function(evt){
+            newText1.setAttribute("value", evt.target.value);
+        });
         newCell.appendChild(newText);
         newCell1.appendChild(newText1);
     }
 }); 
 add.addEventListener("click", (e) => {
+    var size = table.rows.length;
     var newRow = table.insertRow();
     var newCell = newRow.insertCell();
     var newCell1 = newRow.insertCell();
     var newText = document.createElement("INPUT");
-    newText.setAttribute("class", "entries");
+    newText.setAttribute("id", "ent_sym"+(size-1));
     var newText1 = document.createElement("INPUT");
-    newText1.setAttribute("class", "entries1");
+    newText1.setAttribute("id", "ent_key"+ (size-1));
     newCell.appendChild(newText);
     newCell1.appendChild(newText1);
 });
@@ -38,15 +48,17 @@ chseck.addEventListener("click", (e) => {
     chrome.storage.local.set({ 'general': gen }, function(){
         //  Data's been saved boys and girls, go on home
     });
-    var arremoji = document.getElementsByClassName("entries");
-    var arremoji1 = document.getElementsByClassName("entries1");
+
     var arr = [];
     for(var i = 0; i<=count-1; i++){
-        arr.push({'sym' : arremoji[i].value});
+        var arremoji = document.getElementById("ent_sym"+i);
+        //console.log("eee" + arremoji);
+        arr.push("wdgf");
     }
     var arr1 = [];
     for(var i = 0; i<=count-1; i++){
-        arr.push({'key' : arremoji1[i].value});
+        var arremoji1 = document.getElementById("ent_key"+i);
+        arr1.push("wegr");
     }
     chrome.storage.local.set({ 'emoji_sym' : arr }, function(){
         //  Data's been saved boys and girls, go on home
