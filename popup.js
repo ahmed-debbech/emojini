@@ -22,7 +22,7 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
             newText1.setAttribute("value", items.emoji_key[i]);
             var button = document.createElement("BUTTON");
             button.setAttribute("id", "remove"+ i );
-            button.innerText = "Remove";
+            button.innerText = "X";
             newCell.appendChild(newText);
             newCell1.appendChild(newText1);
             var k = i;
