@@ -12,14 +12,19 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
             var newRow = table.insertRow();
             var newCell = newRow.insertCell();
             var newCell1 = newRow.insertCell();
+            var newCell2 = newRow.insertCell();
             var newText = document.createElement("INPUT");
             newText.setAttribute("id", "ent_sym"+i);
             newText.setAttribute("value", items.emoji_sym[i]);
             var newText1 = document.createElement("INPUT");
             newText1.setAttribute("id", "ent_key"+i);
             newText1.setAttribute("value", items.emoji_key[i]);
+            var button = document.createElement("BUTTON");
+            button.setAttribute("id", "remove"+ i );
+            button.innerText = "Remove";
             newCell.appendChild(newText);
             newCell1.appendChild(newText1);
+            newCell2.appendChild(button);
         }
     }
 }); 
@@ -28,12 +33,17 @@ add.addEventListener("click", (e) => {
     var newRow = table.insertRow();
     var newCell = newRow.insertCell();
     var newCell1 = newRow.insertCell();
+    var newCell2 = newRow.insertCell();
     var newText = document.createElement("INPUT");
     newText.setAttribute("id", "ent_sym"+(size-1));
     var newText1 = document.createElement("INPUT");
     newText1.setAttribute("id", "ent_key"+ (size-1));
+    var button = document.createElement("BUTTON");
+    button.setAttribute("id", "remove"+ (size-1));
+    button.innerText = "Remove";
     newCell.appendChild(newText);
     newCell1.appendChild(newText1);
+    newCell2.appendChild(button);
 });
 const focuselem = document.activeElement;
 chseck.addEventListener("click", (e) => {

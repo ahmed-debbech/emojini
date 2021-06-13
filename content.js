@@ -26,7 +26,7 @@ function updateValue(input, elem) {
     return input;
 }
 for(var i = 0; i < inputs.length; i++) {
-    if(inputs[i].type.toLowerCase() == 'text') {
+    //if(inputs[i].type.toLowerCase() == 'text' || inputs[i].type.toLowerCase() == 'search') {
         let elem = inputs[i];
         inputs[i].addEventListener('keyup', (e) => {
             if(e.key === " "){
@@ -34,5 +34,5 @@ for(var i = 0; i < inputs.length; i++) {
                 updateValue(tt, elem);
             }
         });
-    }
+    //}
 }
