@@ -4,24 +4,15 @@ function analyze(text, elem){
     }); 
 }
 function setNewText(items,text,elem){
-    alert(items.emoji_key);
-    alert(items.emoji_sym);
-    alert(items.emoji_key.length);
     for(var i=0; i<=items.emoji_key.length-1; i++){
-        alert(i);
         let bind = items.general + items.emoji_key[i];
         let r = RegExp(bind);
-        alert(bind);
         var str = elem.value;
-        alert("val " + elem.value);
         if(str.match(r) != null){
             for(var k = 0; k<=str.match(r).length-1; k++){
-                alert("dd " + items.emoji_sym[i]);
                 var st = str.replace(bind, items.emoji_sym[i]);
                 elem.value = st;
             }
-        }else{
-            alert("no have ");
         }
     }
 }
