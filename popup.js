@@ -10,6 +10,7 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
     if(items.emoji_sym){
         for(var i=0; i<=items.emoji_sym.length-1; i++){
             var newRow = table.insertRow();
+            newRow.setAttribute("id" , "row"+ i);
             var newCell = newRow.insertCell();
             var newCell1 = newRow.insertCell();
             var newCell2 = newRow.insertCell();
@@ -22,6 +23,9 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
             var button = document.createElement("BUTTON");
             button.setAttribute("id", "remove"+ i );
             button.innerText = "Remove";
+            button.addEventListener("click", (e) => {
+                table.deleteRow(i+1);
+            });
             newCell.appendChild(newText);
             newCell1.appendChild(newText1);
             newCell2.appendChild(button);
@@ -31,6 +35,7 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
 add.addEventListener("click", (e) => {
     var size = table.rows.length;
     var newRow = table.insertRow();
+    newRow.setAttribute("id" , "row"+ (size-1));
     var newCell = newRow.insertCell();
     var newCell1 = newRow.insertCell();
     var newCell2 = newRow.insertCell();
@@ -41,6 +46,9 @@ add.addEventListener("click", (e) => {
     var button = document.createElement("BUTTON");
     button.setAttribute("id", "remove"+ (size-1));
     button.innerText = "Remove";
+    button.addEventListener("click", (e) => {
+        table.deleteRow(size);
+    });
     newCell.appendChild(newText);
     newCell1.appendChild(newText1);
     newCell2.appendChild(button);
