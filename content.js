@@ -1,33 +1,36 @@
-function analyze(text){
-    alert("inside " + text);
-    let r = RegExp('_&lg');
-    alert(text.match(r));
-    var matches = text.match(r);
-    var str = text;
-    //for(var i=0; i<= matches.length; i++){
-        var st = str.replace('_&lg', "😂");
-        alert("changedd " + st);
-    //}
-    return st;
+function analyze(text, elem){
+    chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
+        setNewText(items,text,elem);
+    }); 
+}
+function setNewText(items,text,elem){
+    for(var i=0; i<=items.emoji_key.length-1; i++){
+        let bind = items.general + items.emoji_key[i];
+        alert(bind);
+        let r = RegExp(bind);
+        var str = text;
+        for(var k = 0; k<=str.match(r).length-1; k++){
+            var st = str.replace(bind, items.emoji_sym[k]);
+            elem.value = st;
+        }
+    }
 }
 const focuselem = document.activeElement;
 
 var inputs = document.getElementsByTagName('input');
 
-function updateValue(input) {
-    ne = analyze(input);
+function updateValue(input, elem) {
+    ne = analyze(input, elem);
     input = ne;
     return input;
 }
 for(var i = 0; i < inputs.length; i++) {
     if(inputs[i].type.toLowerCase() == 'text') {
-        //alert("main " + tt);
         let elem = inputs[i];
         inputs[i].addEventListener('keyup', (e) => {
             if(e.key === " "){
                 let tt = elem.value;
-                let hh = updateValue(tt);
-                elem.value = hh;
+                updateValue(tt, elem);
             }
         });
     }
