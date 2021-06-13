@@ -23,11 +23,12 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
             var button = document.createElement("BUTTON");
             button.setAttribute("id", "remove"+ i );
             button.innerText = "Remove";
-            button.addEventListener("click", (e) => {
-                table.deleteRow(i);
-            });
             newCell.appendChild(newText);
             newCell1.appendChild(newText1);
+            var k = i;
+            button.addEventListener("click", (e) => {
+                document.getElementById("emojis_table").deleteRow(k.toString());
+            });
             newCell2.appendChild(button);
         }
     }
@@ -46,8 +47,9 @@ add.addEventListener("click", (e) => {
     var button = document.createElement("BUTTON");
     button.setAttribute("id", "remove"+ (size-1));
     button.innerText = "Remove";
+    var k = size;
     button.addEventListener("click", (e) => {
-        table.deleteRow(size);
+        document.getElementById("emojis_table").deleteRow(k.toString());
     });
     newCell.appendChild(newText);
     newCell1.appendChild(newText1);
@@ -63,14 +65,17 @@ chseck.addEventListener("click", (e) => {
     });
     var arr = [];
     for(var i = 0; i<=count-2; i++){
-        var arremoji = document.getElementById("ent_sym"+i).value;
-        //console.log("eee" + arremoji);
-        arr.push(arremoji);
+        var arremoji = document.getElementById("ent_sym"+i);
+        if(arremoji != null){
+            arr.push(arremoji.value);
+        }
     }
     var arr1 = [];
     for(var j = 0; j<=count-2; j++){
-        var arremoji1 = document.getElementById("ent_key"+j).value;
-        arr1.push(arremoji1);
+        var arremoji1 = document.getElementById("ent_key"+j);
+        if(arremoji1 != null){
+            arr1.push(arremoji1.value);
+        }
     }
     chrome.storage.local.set({ 'emoji_sym' : arr }, function(){
         //  Data's been saved boys and girls, go on home
