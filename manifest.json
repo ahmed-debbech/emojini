@@ -12,6 +12,11 @@
     "background": {
         "scripts": ["background.js"]
     },
+    "icons": {
+        "16": "smiling.png",
+        "48": "smiling.png",
+        "128": "smiling.png"
+    },
     "browser_action": {
         "default_popup": "popup.html"
     },
