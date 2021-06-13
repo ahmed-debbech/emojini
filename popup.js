@@ -15,15 +15,9 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
             var newText = document.createElement("INPUT");
             newText.setAttribute("id", "ent_sym"+i);
             newText.setAttribute("value", items.emoji_sym[i]);
-            newText.addEventListener("input", function(evt){
-                newText.setAttribute("value", evt.target.value);
-            });
             var newText1 = document.createElement("INPUT");
             newText1.setAttribute("id", "ent_key"+i);
             newText1.setAttribute("value", items.emoji_key[i]);
-            newText1.addEventListener("input", function(evt){
-                newText1.setAttribute("value", evt.target.value);
-            });
             newCell.appendChild(newText);
             newCell1.appendChild(newText1);
         }
