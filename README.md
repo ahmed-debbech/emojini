@@ -15,3 +15,4 @@ loving-face caracter: lv \
 when you combine them: _&lv --> you get: 😍
 
 ### This is a side project by Ahmed Debbech
+#### Not published on Chrome Extension Store
