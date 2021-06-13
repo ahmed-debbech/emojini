@@ -24,7 +24,7 @@ chrome.storage.local.get(["general", "emoji_sym", "emoji_key"], function(items){
             button.setAttribute("id", "remove"+ i );
             button.innerText = "Remove";
             button.addEventListener("click", (e) => {
-                table.deleteRow(i+1);
+                table.deleteRow(i);
             });
             newCell.appendChild(newText);
             newCell1.appendChild(newText1);

@@ -6,6 +6,7 @@
       body {
         width: auto;
         height: auto;
+        background-color: #9DF2F9;
       }
       input {
         display: block;
@@ -18,34 +19,53 @@
       #rotate3d {
         width: 90%;
       }
+      #emojis_table {
+        border: 0px  blue;
+      }
+      button{
+        background-color: #55C6CE;
+        border-radius: 40px;
+        border-color: #77E2E9;
+      }
+      input{
+        border-radius: 20px;
+      }
+      #title{
+        color: #E352D3;
+        
+      }
     </style>
 
   </head>
   <body>
-    <h2>Emojini :)</h2>
+    <h1 id="title">Emojini!</h1>
     <table>
         <tr>
             <td>
-                <h4>Starting Key Binding</h4>
+                <h4>Starting Caracter:</h4>
             </td>
             <td>
                 <input id="general" type="text"> 
             </td>
         </tr>
     </table>
-    <h4>Emojis Key Bindings:</h4>
-    <table id="emojis_table" border="1px">
+    <fieldset>
+    <h4>Emojis' Key Bindings:</h4>
+    <table id="emojis_table">
         <tr>
             <th>
-                Symbol
+                Emoji
             </th>
             <th>
-                key
+                Key
             </th>
         </tr>
     </table>
     <button id="add_new">Add New</button>
     <button id="appl">Apply</button>
+    </fieldset>
+    <h6>created by Ahmed Debbech v0.1</h6>
+
     <script src="popup.js"></script>
   </body>
 </html>
