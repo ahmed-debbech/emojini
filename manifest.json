@@ -9,9 +9,6 @@
             "js": ["content.js"]
         }
     ],
-    "background": {
-        "scripts": ["background.js"]
-    },
     "icons": {
         "16": "smiling.png",
         "48": "smiling.png",
